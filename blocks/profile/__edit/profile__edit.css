@@ -2,7 +2,7 @@
     width: 18px;
     height: 18px;
     border: 1px solid #ffffff;
-    background-image: url('/img/pensil.svg');
+    background-image: url('../../../img/pensil.svg');
     background-repeat: no-repeat;
     background-position: center;
     cursor: pointer;

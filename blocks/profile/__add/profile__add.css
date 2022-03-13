@@ -4,7 +4,7 @@
     height: 50px;
     border: 2px solid #ffffff;
     border-radius: 2px;
-    background-image: url('/img/cross.svg');
+    background-image: url('../../../img/cross.svg');
     background-repeat: no-repeat;
     background-position: center;
     cursor: pointer;

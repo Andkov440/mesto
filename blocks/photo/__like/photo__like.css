@@ -2,14 +2,14 @@
     width: 22px;
     height: 19px;
     cursor: pointer;
-    background-image: url('/img/like.svg');
+    background-image: url('../../../img/like.svg');
     margin-right: 30px;
 }
 
 .photo__like:hover {
-    background-image: url('/img/like-hover.svg');
+    background-image: url('../../../img/like-hover.svg');
 }
 
 .photo__like:active {
-    background-image: url('/img/like-active.svg');
+    background-image: url('../../../img/like-active.svg');
 }
