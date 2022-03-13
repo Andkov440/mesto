@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>Mesto</title>
+	<link rel="stylesheet" href="pages/index.css" />
+</head>
+<body class="page">
+	<header class="header">
+		<img class="header__image" src="img/logo.svg" alt="Лого">
+	</header>
+	<main class="main">
+		<section class="profile">
+            <img class="profile__picture" src="img/kusto.jpg" alt="Жак-Ив кусто">
+            <div class="profile__wrapper">
+			    <h1 class="profile__title">Жак-Ив Кусто</h1>
+                <div class="profile__edit"></div>
+            </div>
+			<p class="profile__subtitle">Исследователь океана</p>
+            <div class="profile__add"></div>
+		</section>
+		<section class="photo">
+			<figure class="photo__item">
+				<img class="photo__image" src="img/karachaevsk.jpg" alt="Карачаевск">
+				<figcaption class="photo__caption">
+					<h2 class="photo__title">Карачаевск</h2>
+					<div class="photo__like"></div>
+				</figcaption>
+			</figure>
+			<figure class="photo__item">
+				<img class="photo__image" src="img/elbrus.jpg" alt="Гора Эльбрус">
+				<figcaption class="photo__caption">
+					<h2 class="photo__title">Гора Эльбрус</h2>
+					<div class="photo__like"></div>
+				</figcaption>
+			</figure>
+			<figure class="photo__item">
+				<img class="photo__image" src="img/dombay.jpg" alt="Домбай">
+				<figcaption class="photo__caption">
+					<h2 class="photo__title">Домбай</h2>
+					<div class="photo__like"></div>
+				</figcaption>
+			</figure>
+			<figure class="photo__item">
+				<img class="photo__image" src="img/karachaevsk.jpg" alt="Карачаевск">
+				<figcaption class="photo__caption">
+					<h2 class="photo__title">Карачаевск</h2>
+					<div class="photo__like"></div>
+				</figcaption>
+			</figure>
+			<figure class="photo__item">
+				<img class="photo__image" src="img/elbrus.jpg" alt="Гора Эльбрус">
+				<figcaption class="photo__caption">
+					<h2 class="photo__title">Гора Эльбрус</h2>
+					<div class="photo__like"></div>
+				</figcaption>
+			</figure>
+			<figure class="photo__item">
+				<img class="photo__image" src="img/dombay.jpg" alt="Домбай">
+				<figcaption class="photo__caption">
+					<h2 class="photo__title">Домбай</h2>
+					<div class="photo__like"></div>
+				</figcaption>
+			</figure>
+		</section>
+	</main>
+	<footer class="footer">
+		<p class="footer__copyright">© 2022 Ковалев Андрей</p>		
+	</footer>
+	<section class="popup">
+		<form class="popup__container">
+			<h2 class="popup__title">Редактировать профиль</h2>
+			<input type="text" class="popup__input" name="name">
+			<input type="text" class="popup__input" name="about">
+			<button type="submit" class="popup__submit">Сохранить</button>
+			<div class="popup__close"></div>
+		</form>
+		
+	</section>
+	
+	<script src="/js/script.js"></script>
+</body>
+</html>

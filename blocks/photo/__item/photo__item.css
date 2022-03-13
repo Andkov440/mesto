@@ -1,0 +1,8 @@
+.photo__item {
+	width: 282px;
+	margin: 0;
+	padding: 0;
+	border: 1px solid #000000;
+	border-radius: 10px;
+	box-sizing: border-box;
+}
