@@ -1,34 +1,34 @@
 .popup__close {
-    position: absolute;
-    cursor: pointer;
-    top: -16px;
-    right: 19px;
+  position: absolute;
+  cursor: pointer;
+  top: -16px;
+  right: 19px;
 }
 
 .popup__close:before, .popup__close:after {
-    content: "";
-    position: absolute;
-    width: 20px;
-    height: 2px;
-    background: #ffffff;
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 2px;
+  background: #ffffff;
 }
 
 .popup__close:before {
-    transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 
 .popup__close:after {
-    transform: rotate(-45deg);
+  transform: rotate(-45deg);
 }
 
 @media (min-width: 1024px) {
-    .popup__close {
-        top: -25px;
-        right: -3px;
-    }
+  .popup__close {
+    top: -25px;
+    right: -3px;
+  }
 
-    .popup__close:before, .popup__close:after {
-        width: 32px;
-        height: 4px;
-    }
+  .popup__close:before, .popup__close:after {
+    width: 32px;
+    height: 4px;
+  }
 }

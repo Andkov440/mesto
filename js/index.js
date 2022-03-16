@@ -7,21 +7,21 @@ let formElement = popup.querySelector('.popup__container');
 let popupInputs = popup.querySelectorAll('.popup__input');
 
 profileEdit.addEventListener('click', function() {
-    popup.classList.add('popup_opened');
+  popup.classList.add('popup_opened');
 });
 
 closeButton.addEventListener('click', function() {
-    popup.classList.remove('popup_opened');
+  popup.classList.remove('popup_opened');
 });
 
 popupInputs[0].value = profileTitle.textContent;
 popupInputs[1].value = profileSubtitle.textContent;
 
 function formSubmitHandler (evt) {
-    evt.preventDefault(); 
+  evt.preventDefault(); 
 
-    profileTitle.textContent = popupInputs[0].value;
-    profileSubtitle.textContent = popupInputs[1].value;
+  profileTitle.textContent = popupInputs[0].value;
+  profileSubtitle.textContent = popupInputs[1].value;
 }
 
 formElement.addEventListener('submit', formSubmitHandler); 
