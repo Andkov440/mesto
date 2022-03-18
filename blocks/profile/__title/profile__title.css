@@ -4,11 +4,15 @@
   font-style: normal;
   line-height: 32.68px;
   margin: 0;
-  min-width: 189px;
+  min-width: 190px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 @media (min-width: 1024px) {
   .profile__title {
+    min-width: 294px;
     font-size: 42px;
     line-height: 48px;
   }

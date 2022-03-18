@@ -1,9 +1,10 @@
-.popup__container {
+.popup__form {
   position: relative;
-  margin: 123px auto 0px auto;
   width: 282px;
+  height: 330px;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
   background-color: #ffffff;
   border-radius: 10px;
@@ -11,8 +12,7 @@
 }
 
 @media (min-width: 1024px) {
-  .popup__container {
+  .popup__form {
     width: 430px;
-    margin: 195px auto 0px auto;
   }
 }

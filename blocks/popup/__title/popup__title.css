@@ -11,10 +11,10 @@
 
 @media (min-width: 1024px) {
   .popup__title {
-    width: 330px;
+    width: 356px;
     font-size: 24px;
     line-height: 29px;
     margin-top: 34px;
-    margin-bottom: 54px;
+    margin-bottom: 42px;
   }
 }

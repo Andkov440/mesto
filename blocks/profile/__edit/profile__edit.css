@@ -5,7 +5,7 @@
   background-image: url('../../../img/pensil.svg');
   background-repeat: no-repeat;
   background-position: center;
-  cursor: pointer;
+  box-sizing: border-box;
 }
 
 .profile__edit:hover {

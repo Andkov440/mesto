@@ -1,14 +1,13 @@
 .popup__close {
   position: absolute;
-  cursor: pointer;
-  top: -16px;
-  right: 19px;
+  top: -28px;
+  right: 15px;
 }
 
 .popup__close:before, .popup__close:after {
   content: "";
   position: absolute;
-  width: 20px;
+  width: 24px;
   height: 2px;
   background: #ffffff;
 }
@@ -23,12 +22,12 @@
 
 @media (min-width: 1024px) {
   .popup__close {
-    top: -25px;
-    right: -3px;
+    top: -28px;
+    right: -11px;
   }
 
   .popup__close:before, .popup__close:after {
-    width: 32px;
+    width: 40px;
     height: 4px;
   }
 }

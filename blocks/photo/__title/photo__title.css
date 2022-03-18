@@ -6,7 +6,9 @@
   color: #000000;
   margin: 0;
   padding-top: 25px;
-  padding-bottom: 31px;
+  padding-bottom: 25px;
   padding-left: 21px;
-  position: relative;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }

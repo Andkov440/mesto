@@ -1,9 +1,8 @@
 .photo__like {
   width: 22px;
   height: 19px;
-  cursor: pointer;
   background-image: url('../../../img/like.svg');
-  margin-right: 30px;
+  margin-right: 20px;
 }
 
 .photo__like:hover {

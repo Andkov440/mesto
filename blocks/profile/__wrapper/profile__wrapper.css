@@ -3,8 +3,9 @@
   justify-content: space-between;
   align-items: center;
   width: 217px;
-  margin: 26px auto 14px auto;
+  margin: 26px auto 8px auto;
   padding-left: 33px;
+  padding-right: 3px;
 }
 
 @media (min-width: 1024px) {
@@ -14,6 +15,6 @@
     margin: 0;
     grid-area: title;
     align-self: end;
-    margin-top: 30px;
+    margin-top: 40px;
   }
 }

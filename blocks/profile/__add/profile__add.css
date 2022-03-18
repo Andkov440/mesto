@@ -4,6 +4,7 @@
   height: 50px;
   border: 2px solid #ffffff;
   border-radius: 2px;
+  background: transparent;
   background-image: url('../../../img/cross.svg');
   background-repeat: no-repeat;
   background-position: center;
@@ -19,8 +20,9 @@
   .profile__add {
     grid-area: add;
     width: 150px;
-    margin-top: 30px;
+    margin-top: 40px;
     margin-bottom: 0;
     align-self: center;
+    background-size: 22px;
   }
 }
