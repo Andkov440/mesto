@@ -1,7 +1,8 @@
 .photo__like {
-  width: 22px;
+  width: 24px;
   height: 19px;
   background-image: url('../../../img/like.svg');
+  background-repeat: no-repeat;
   margin-right: 20px;
 }
 
@@ -9,6 +10,3 @@
   background-image: url('../../../img/like-hover.svg');
 }
 
-.photo__like:active {
-  background-image: url('../../../img/like-active.svg');
-}

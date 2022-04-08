@@ -20,65 +20,50 @@
         <p class="profile__subtitle">Исследователь океана</p>
         <button type="button" class="profile__add button"></button>
       </section>
-      <section class="photo">
-        <figure class="photo__item">
-          <img class="photo__image" src="img/karachaevsk.jpg" alt="Карачаевск">
-          <figcaption class="photo__caption">
-            <h2 class="photo__title">Карачаевск</h2>
-            <button type="button" class="photo__like button"></button>
-          </figcaption>
-        </figure>
-        <figure class="photo__item">
-          <img class="photo__image" src="img/elbrus.jpg" alt="Гора Эльбрус">
-          <figcaption class="photo__caption">
-            <h2 class="photo__title">Гора Эльбрус</h2>
-            <button type="button" class="photo__like button"></button>
-          </figcaption>
-        </figure>
-        <figure class="photo__item">
-          <img class="photo__image" src="img/dombay.jpg" alt="Домбай">
-          <figcaption class="photo__caption">
-            <h2 class="photo__title">Домбай</h2>
-            <button type="button" class="photo__like button"></button>
-          </figcaption>
-        </figure>
-        <figure class="photo__item">
-          <img class="photo__image" src="img/karachaevsk.jpg" alt="Карачаевск">
-          <figcaption class="photo__caption">
-            <h2 class="photo__title">Карачаевск</h2>
-            <button type="button" class="photo__like button"></button>
-          </figcaption>
-        </figure>
-        <figure class="photo__item">
-          <img class="photo__image" src="img/elbrus.jpg" alt="Гора Эльбрус">
-          <figcaption class="photo__caption">
-            <h2 class="photo__title">Гора Эльбрус</h2>
-            <button type="button" class="photo__like button"></button>
-          </figcaption>
-        </figure>
-        <figure class="photo__item">
-          <img class="photo__image" src="img/dombay.jpg" alt="Домбай">
-          <figcaption class="photo__caption">
-            <h2 class="photo__title">Домбай</h2>
-            <button type="button" class="photo__like button"></button>
-          </figcaption>
-        </figure>
-      </section>
+      <section class="photo"></section>
     </main>
     <footer class="footer">
       <p class="footer__copyright">&copy; 2022 Ковалев Андрей</p>
     </footer>
-    <section class="popup">
+    <section class="popup popup_edit">
       <div class="popup__container">
-        <form class="popup__form" name="popup-form">
+        <form class="popup__form popup__form_edit" name="popup-form">
           <h2 class="popup__title">Редактировать профиль</h2>
           <input type="text" class="popup__input" name="name" id="name">
           <input type="text" class="popup__input" name="about" id="about">
           <button type="submit" class="popup__submit button">Сохранить</button>
-          <button type="button" class="popup__close button"></button>
+          <button type="button" class="popup__close popup__close_edit button"></button>
         </form>
       </div>
     </section>
+    <section class="popup popup_add">
+      <div class="popup__container">
+        <form class="popup__form popup__form_add" name="popup-form">
+          <h2 class="popup__title">Новое место</h2>
+          <input type="text" class="popup__input" name="title" id="title" placeholder="Название">
+          <input type="text" class="popup__input" name="url" id="url" placeholder="Ссылка на картинку">
+          <button type="submit" class="popup__submit button">Создать</button>
+          <button type="button" class="popup__close popup__close_add button"></button>
+        </form>
+      </div>
+    </section>
+    <section class="popup pict">
+      <div class="pict__container">
+          <img class="pict__image" src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg" alt="Фото">
+          <p class="pict__caption">Новое место</p>
+          <button type="button" class="popup__close popup__close_image button"></button>
+      </div>
+    </section>
+    <template id="photo__template">
+      <figure class="photo__item">
+        <img class="photo__image" src="#" alt="Фото">
+        <figcaption class="photo__caption">
+          <h2 class="photo__title"></h2>
+          <button type="button" class="photo__like button"></button>
+        </figcaption>
+        <button type="button" class="photo__trashbin button"></button>
+      </figure>
+    </template>
     <script src="./js/index.js"></script>
   </body>
 </html>
