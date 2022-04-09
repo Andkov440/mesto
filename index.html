@@ -29,8 +29,8 @@
       <div class="popup__container">
         <form class="popup__form popup__form_edit" name="popup-form">
           <h2 class="popup__title">Редактировать профиль</h2>
-          <input type="text" class="popup__input" name="name" id="name">
-          <input type="text" class="popup__input" name="about" id="about">
+          <input type="text" class="popup__input popup__name" name="name" id="name" placeholder="Имя">
+          <input type="text" class="popup__input popup__about" name="about" id="about" placeholder="Профессия">
           <button type="submit" class="popup__submit button">Сохранить</button>
           <button type="button" class="popup__close popup__close_edit button"></button>
         </form>
@@ -40,17 +40,17 @@
       <div class="popup__container">
         <form class="popup__form popup__form_add" name="popup-form">
           <h2 class="popup__title">Новое место</h2>
-          <input type="text" class="popup__input" name="title" id="title" placeholder="Название">
-          <input type="text" class="popup__input" name="url" id="url" placeholder="Ссылка на картинку">
+          <input type="text" class="popup__input popup__title" name="title" id="title" placeholder="Название">
+          <input type="text" class="popup__input popup__url" name="url" id="url" placeholder="Ссылка на картинку">
           <button type="submit" class="popup__submit button">Создать</button>
           <button type="button" class="popup__close popup__close_add button"></button>
         </form>
       </div>
     </section>
-    <section class="popup pict">
-      <div class="pict__container">
-          <img class="pict__image" src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg" alt="Фото">
-          <p class="pict__caption">Новое место</p>
+    <section class="popup popup-picture">
+      <div class="popup-picture__container">
+          <img class="popup-picture__image" src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg" alt="Фото">
+          <p class="popup-picture__caption">Новое место</p>
           <button type="button" class="popup__close popup__close_image button"></button>
       </div>
     </section>
@@ -64,6 +64,7 @@
         <button type="button" class="photo__trashbin button"></button>
       </figure>
     </template>
+    <script src="./js/cards.js"></script>
     <script src="./js/index.js"></script>
   </body>
 </html>
