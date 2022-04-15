@@ -16,6 +16,14 @@
   opacity: 0.8;
 }
 
+.popup__submit:disabled {
+  opacity: 0.2;
+  background-color: transparent;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  color: #000000;
+}
+
 @media (min-width: 1024px) {
   .popup__submit {
     width: 358px;
