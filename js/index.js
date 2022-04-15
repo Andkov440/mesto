@@ -3,9 +3,9 @@ const profileAdd = document.querySelector('.profile__add');
 const popupAdd = document.querySelector('.popup_add');
 const popupEdit = document.querySelector('.popup_edit');
 const popupImage = document.querySelector('.popup-picture');
-const closeButtonEdit = document.querySelector('.popup__close_edit');
-const closeButtonAdd = document.querySelector('.popup__close_add');
-const closeButtonImage = document.querySelector('.popup__close_image');
+const popupCloseEditButton = document.querySelector('.popup__close_edit');
+const popupCloseAddButton = document.querySelector('.popup__close_add');
+const popupCloseImageButton = document.querySelector('.popup__close_image');
 const profileTitle = document.querySelector('.profile__title')
 const profileSubtitle = document.querySelector('.profile__subtitle')
 const formEditElement = document.querySelector('.popup__form_edit');
@@ -22,17 +22,6 @@ const ESC_KEY = "Escape";
 const setInputsValue = () => {
   titleInputValue.value = profileTitle.textContent;
   descriptionInputValue.value = profileSubtitle.textContent;
-}
-
-const isInputEmpty = () => {
-  const popupAddInputList = Array.from(popupAdd.querySelectorAll('.popup__input'));
-  popupAddInputList.forEach((listItem) => {
-    if (listItem.value === '') {
-      popupAdd.querySelector('.popup__submit').disabled = true;
-    } else {
-      popupAdd.querySelector('.popup__submit').disabled = false;
-    }
-  });
 }
 
 const popupEscapePress = (evt) => {
@@ -61,25 +50,12 @@ const closePopup = (popup) => {
   popup.removeEventListener('click', closePopupOnOverlayClick);
 }
 
-profileEdit.addEventListener('click', () => {setInputsValue(); openPopup(popupEdit)});
-
-profileAdd.addEventListener('click', () => {
-  isInputEmpty();
-  openPopup(popupAdd);
-});
-
-closeButtonEdit.addEventListener('click', () => closePopup(popupEdit));
-closeButtonAdd.addEventListener('click', () => closePopup(popupAdd));
-closeButtonImage.addEventListener('click', () => closePopup(popupImage));
-
 const handleProfileFormSubmit = (evt) => {
   evt.preventDefault();
   profileTitle.textContent = titleInputValue.value;
   profileSubtitle.textContent = descriptionInputValue.value;
   closePopup(popupEdit);
 }
-
-formEditElement.addEventListener('submit', handleProfileFormSubmit);
 
 const changeLikeButton = (evt) => {
   const eventTarget = evt.target;
@@ -111,12 +87,6 @@ const createPhotoCard = (obj) => {
   return userElement;
 }
 
-const elements = initialCards.map(function(obj) {
-  return createPhotoCard(obj);
-});
-
-cardsContainer.append(...elements);
-
 const handleAddCardFormSubmit = (evt) => {
   evt.preventDefault();
   const newCardData = {name:`${cardNameInputValue.value}`, link:`${cardLinkInputValue.value}`};
@@ -125,4 +95,13 @@ const handleAddCardFormSubmit = (evt) => {
   formAddElement.reset();
 }
 
+const elements = initialCards.map((obj) => createPhotoCard(obj));
+cardsContainer.append(...elements);
+
+profileEdit.addEventListener('click', () => {setInputsValue(); openPopup(popupEdit);});
+profileAdd.addEventListener('click', () => {openPopup(popupAdd);});
+popupCloseEditButton.addEventListener('click', () => closePopup(popupEdit));
+popupCloseAddButton.addEventListener('click', () => closePopup(popupAdd));
+popupCloseImageButton.addEventListener('click', () => closePopup(popupImage));
+formEditElement.addEventListener('submit', handleProfileFormSubmit);
 formAddElement.addEventListener('submit', handleAddCardFormSubmit);
