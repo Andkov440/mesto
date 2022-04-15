@@ -95,11 +95,22 @@ const handleAddCardFormSubmit = (evt) => {
   formAddElement.reset();
 }
 
+const setButtonDisabled = () => {
+  const popupAddInputList = Array.from(popupAdd.querySelectorAll('.popup__input'));
+  popupAddInputList.forEach((listItem) => {
+    if (listItem.value === '') {
+      popupAdd.querySelector('.popup__submit').disabled = true;
+    } else {
+      popupAdd.querySelector('.popup__submit').disabled = false;
+    }
+  });
+}
+
 const elements = initialCards.map((obj) => createPhotoCard(obj));
 cardsContainer.append(...elements);
 
 profileEdit.addEventListener('click', () => {setInputsValue(); openPopup(popupEdit);});
-profileAdd.addEventListener('click', () => {openPopup(popupAdd);});
+profileAdd.addEventListener('click', () => {openPopup(popupAdd); setButtonDisabled();});
 popupCloseEditButton.addEventListener('click', () => closePopup(popupEdit));
 popupCloseAddButton.addEventListener('click', () => closePopup(popupAdd));
 popupCloseImageButton.addEventListener('click', () => closePopup(popupImage));
