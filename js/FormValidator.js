@@ -1,9 +1,9 @@
 export default class FormValidator {
-  constructor(parameters, formSelector) {
+  constructor(parameters, form) {
     this._submitButtonSelector = parameters.submitButtonSelector;
     this._inputErrorClass = parameters.inputErrorClass;
     this._errorClass = parameters.errorClass;
-    this._formSelector = formSelector;
+    this._form = form;
   }
 
   _showError = (input) => {
@@ -30,6 +30,18 @@ export default class FormValidator {
     }
   };
 
+  _setButtonDisabled = () => {
+    const popupSubmit = this._form.querySelector('.popup__submit');
+    const popupAddInputList = Array.from(this._form.querySelectorAll('.popup__input'));
+    popupAddInputList.forEach((listItem) => {
+      if (listItem.value === '') {
+        popupSubmit.disabled = true;
+      } else {
+        popupSubmit.disabled = false;
+      }
+    });
+  }
+
   _validateInput = (input) => {
     const errorElement = input.parentNode.querySelector(`#${input.id}-error`);
     errorElement.textContent = input.validationMessage;
@@ -38,27 +50,18 @@ export default class FormValidator {
   };
 
   _handleInput = (evt) => {
-    const currentForm = evt.currentTarget;
     const input = evt.target;
-    const submitButton = currentForm.querySelector(`${this._submitButtonSelector}`);
-    this._setButtonState(submitButton, currentForm.checkValidity());
+    this._submitButton = this._form.querySelector(`${this._submitButtonSelector}`);
+    this._setButtonState(this._submitButton, this._form.checkValidity());
     this._validateInput(input);
   };
 
-  _handleSubmit = (evt) => {
-    evt.preventDefault();
-
-    if(evt.target.checkValidity()) {
-      evt.target.reset();
-    }
-  };
-
   _setEventListeners = () => {
-    this._formSelector.addEventListener('submit', this._handleSubmit);
-    this._formSelector.addEventListener('input', this._handleInput);
+    this._form.addEventListener('input', this._handleInput);
   };
 
   enableValidation = () => {
+    this._setButtonDisabled();
     this._setEventListeners();
   }
 }

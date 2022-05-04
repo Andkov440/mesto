@@ -1,4 +1,4 @@
-import { openPopup, closePopup } from './index.js';
+import { openPopup } from './index.js';
 
 export default class Card {
   constructor(data, templateSelector) {
@@ -8,44 +8,42 @@ export default class Card {
   }
 
   _getTemplate = () => {
-    const photoTemplate = document.getElementById('photo__template').content;
+    const photoTemplate = document.getElementById(this._templateSelector).content;
     const userElement = photoTemplate.querySelector('.photo__item').cloneNode(true);
-
     return userElement;
   }
 
-  _changeLikeButton = (evt) => {
-    const eventTarget = evt.target;
-    eventTarget.classList.toggle('photo__like_active');
+  _handleLikeButton = () => {
+    this._likeButton.classList.toggle('photo__like_active');
+}
+
+  _handleDeleteCard = () => {
+    this._userElement.remove();
+    this._userElement = null;
   };
 
-  _handleDeleteCard = (evt) => {
-    const eventTarget = evt.target;
-    const card = eventTarget.closest('.photo__item');
-    card.remove();
-  };
-
-  _activateImagePopup = (evt) => {
-    const eventTarget = evt.target;
+  _activateImagePopup = () => {
     const popupImage = document.querySelector('.popup-picture');
-    popupImage.querySelector('.popup-picture__image').src = eventTarget.src;
-    popupImage.querySelector('.popup-picture__image').alt = eventTarget.alt;
-    popupImage.querySelector('.popup-picture__caption').textContent = eventTarget.alt;
+    popupImage.querySelector('.popup-picture__image').src = this._image;
+    popupImage.querySelector('.popup-picture__image').alt = this._title;
+    popupImage.querySelector('.popup-picture__caption').textContent = this._title;
     openPopup(popupImage);
   };
 
   _setEventListeners = () => {
-    this._userElement.querySelector('.photo__like').addEventListener('click', this._changeLikeButton);
+    this._likeButton.addEventListener('click', (evt) => {this._handleLikeButton(evt);});
     this._userElement.querySelector('.photo__trashbin').addEventListener('click', this._handleDeleteCard);
     this._userElement.querySelector('.photo__image').addEventListener('click', this._activateImagePopup);
-    document.querySelector('.popup__close_image').addEventListener('click', () => closePopup(document.querySelector('.popup-picture')));
+
   };
 
   generateCard = () => {
     this._userElement = this._getTemplate();
+    this._likeButton = this._userElement.querySelector('.photo__like');
+    this._cardImage = this._userElement.querySelector('.photo__image');
     this._setEventListeners();
-    this._userElement.querySelector('.photo__image').src = this._image;
-    this._userElement.querySelector('.photo__image').alt = this._title;
+    this._cardImage.src = this._image;
+    this._cardImage.alt = this._title;
     this._userElement.querySelector('.photo__title').textContent = this._title;
 
     return this._userElement;
