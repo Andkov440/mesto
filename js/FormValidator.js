@@ -5,6 +5,7 @@ export default class FormValidator {
     this._errorClass = parameters.errorClass;
     this._inputSelector = parameters.inputSelector;
     this._form = form;
+    this._inputList = this._form.querySelectorAll(this._inputSelector);
   }
 
   _showError = (input) => {
@@ -40,7 +41,7 @@ export default class FormValidator {
 
   _handleInput = (evt) => {
     const input = evt.target;
-    this._setButtonState(this._submitButton);
+    this._setButtonState();
     this._validateInput(input);
   };
 
@@ -50,7 +51,6 @@ export default class FormValidator {
   };
 
   resetValidation = () => {
-    this._inputList = this._form.querySelectorAll(this._inputSelector);
     this._setButtonState(this._submitButton);
     this._inputList.forEach((inputElement) => {
       this._hideError(inputElement)
