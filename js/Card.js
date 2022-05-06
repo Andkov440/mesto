@@ -8,7 +8,7 @@ export default class Card {
   }
 
   _getTemplate = () => {
-    const photoTemplate = document.getElementById(this._templateSelector).content;
+    const photoTemplate = document.querySelector(this._templateSelector).content;
     const userElement = photoTemplate.querySelector('.photo__item').cloneNode(true);
     return userElement;
   }

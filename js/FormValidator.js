@@ -3,15 +3,16 @@ export default class FormValidator {
     this._submitButtonSelector = parameters.submitButtonSelector;
     this._inputErrorClass = parameters.inputErrorClass;
     this._errorClass = parameters.errorClass;
+    this._inputSelector = parameters.inputSelector;
     this._form = form;
   }
 
   _showError = (input) => {
-    input.classList.add(`${this._inputErrorClass}`);
+    input.classList.add(this._inputErrorClass);
   };
 
   _hideError = (input) => {
-    input.classList.remove(`${this._inputErrorClass}`);
+    input.classList.remove(this._inputErrorClass);
   };
 
   _checkInputValidity = (input) => {
@@ -22,25 +23,13 @@ export default class FormValidator {
     }
   };
 
-  _setButtonState = (button, isValid) => {
-    if(isValid) {
-      button.disabled = false;
+  _setButtonState = () => {
+    if(this._form.checkValidity()) {
+      this._submitButton.disabled = false;
     } else {
-      button.disabled = true;
+      this._submitButton.disabled = true;
     }
   };
-
-  _setButtonDisabled = () => {
-    const popupSubmit = this._form.querySelector('.popup__submit');
-    const popupAddInputList = Array.from(this._form.querySelectorAll('.popup__input'));
-    popupAddInputList.forEach((listItem) => {
-      if (listItem.value === '') {
-        popupSubmit.disabled = true;
-      } else {
-        popupSubmit.disabled = false;
-      }
-    });
-  }
 
   _validateInput = (input) => {
     const errorElement = input.parentNode.querySelector(`#${input.id}-error`);
@@ -51,17 +40,24 @@ export default class FormValidator {
 
   _handleInput = (evt) => {
     const input = evt.target;
-    this._submitButton = this._form.querySelector(`${this._submitButtonSelector}`);
-    this._setButtonState(this._submitButton, this._form.checkValidity());
+    this._setButtonState(this._submitButton);
     this._validateInput(input);
   };
 
   _setEventListeners = () => {
+    this._submitButton = this._form.querySelector(this._submitButtonSelector);
     this._form.addEventListener('input', this._handleInput);
   };
 
+  resetValidation = () => {
+    this._inputList = this._form.querySelectorAll(this._inputSelector);
+    this._setButtonState(this._submitButton);
+    this._inputList.forEach((inputElement) => {
+      this._hideError(inputElement)
+    });
+  }
+
   enableValidation = () => {
-    this._setButtonDisabled();
     this._setEventListeners();
   }
 }
