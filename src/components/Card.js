@@ -1,15 +1,15 @@
-import { openPopup } from './index.js';
-
 export default class Card {
-  constructor(data, templateSelector) {
-    this._image = data.image;
+  constructor({data, handleCardClick}, templateSelector) {
+    this._url = data.url;
     this._title = data.title;
     this._templateSelector = templateSelector;
+    this._handleCardClick = handleCardClick;
   }
 
   _getTemplate = () => {
     const photoTemplate = document.querySelector(this._templateSelector).content;
     const userElement = photoTemplate.querySelector('.photo__item').cloneNode(true);
+
     return userElement;
   }
 
@@ -22,30 +22,22 @@ export default class Card {
     this._userElement = null;
   };
 
-  _activateImagePopup = () => {
-    const popupImage = document.querySelector('.popup-picture');
-    popupImage.querySelector('.popup-picture__image').src = this._image;
-    popupImage.querySelector('.popup-picture__image').alt = this._title;
-    popupImage.querySelector('.popup-picture__caption').textContent = this._title;
-    openPopup(popupImage);
-  };
-
-  _setEventListeners = () => {
+   _setEventListeners = () => {
     this._likeButton.addEventListener('click', (evt) => {this._handleLikeButton(evt);});
     this._userElement.querySelector('.photo__trashbin').addEventListener('click', this._handleDeleteCard);
-    this._userElement.querySelector('.photo__image').addEventListener('click', this._activateImagePopup);
-
+    this._cardImage.addEventListener('click', () => this._handleCardClick(this._title, this._url));
   };
 
   generateCard = () => {
     this._userElement = this._getTemplate();
     this._likeButton = this._userElement.querySelector('.photo__like');
     this._cardImage = this._userElement.querySelector('.photo__image');
-    this._setEventListeners();
-    this._cardImage.src = this._image;
+
+    this._cardImage.src = this._url;
     this._cardImage.alt = this._title;
     this._userElement.querySelector('.photo__title').textContent = this._title;
 
+    this._setEventListeners();
     return this._userElement;
   }
 }
