@@ -70,7 +70,7 @@ function editProfile() {
 }
 
 profileEditButton.addEventListener('click', () => {
-  validateAddCardForm.resetValidation();
+  validateEditProfileForm.resetValidation();
   editProfile();
 });
 
